@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Market Intelligence Dashboard</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="config/secrets.js" defer></script>
+    <script src="config/config.js" defer></script>
+    <script src="js/api.js" defer></script>
+    <script src="js/chart.js" defer></script>
+    <script src="js/main.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <h1>🔍 Job Market Intelligence Dashboard</h1>
+            <p>Analyze job market trends, salaries, and opportunities</p>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <!-- Search Controls -->
+            <section class="search-section">
+                <div class="search-card">
+                    <h2>🎯 Search & Filter Jobs</h2>
+                    <div class="search-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="keywords">Keywords</label>
+                                <input type="text" id="keywords" placeholder="e.g., JavaScript, Data Analyst" />
+                            </div>
+                            <div class="form-group">
+                                <label for="location">Location</label>
+                                <input type="text" id="location" placeholder="e.g., London, New York" />
+                            </div>
+                            <div class="form-group">
+                                <label for="country">Country</label>
+                                <select id="country">
+                                    <option value="us">United States</option>
+                                    <option value="gb">United Kingdom</option>
+                                    <option value="ca">Canada</option>
+                                    <option value="au">Australia</option>
+                                    <option value="de">Germany</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="salary-min">Minimum Salary</label>
+                                <input type="number" id="salary-min" placeholder="30000" />
+                            </div>
+                            <div class="form-group">
+                                <label for="salary-max">Maximum Salary</label>
+                                <input type="number" id="salary-max" placeholder="100000" />
+                            </div>
+                            <div class="form-group">
+                                <button id="search-btn" class="search-button">
+                                    <span class="search-icon">🔍</span>
+                                    Analyze Market
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Loading Indicator -->
+            <div id="loading" class="loading hidden">
+                <div class="spinner"></div>
+                <p>Analyzing job market data...</p>
+            </div>
+
+            <!-- Results Dashboard -->
+            <section id="results-section" class="results-section hidden">
+                <!-- Market Overview -->
+                <div class="dashboard-grid">
+                    <div class="stat-card">
+                        <h3>📊 Total Jobs Found</h3>
+                        <div class="stat-number" id="total-jobs">-</div>
+                        <div class="stat-subtitle">Available positions</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>💰 Average Salary</h3>
+                        <div class="stat-number" id="avg-salary">-</div>
+                        <div class="stat-subtitle">Based on listed salaries</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>🏢 Top Companies</h3>
+                        <div class="stat-number" id="top-company">-</div>
+                        <div class="stat-subtitle">Most active recruiter</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>📍 Hot Locations</h3>
+                        <div class="stat-number" id="top-location">-</div>
+                        <div class="stat-subtitle">Most opportunities</div>
+                    </div>
+                </div>
+
+                <!-- Charts Section -->
+                <div class="charts-section">
+                    <div class="chart-container">
+                        <h3>📈 Salary Distribution</h3>
+                        <canvas id="salary-chart"></canvas>
+                    </div>
+                    <div class="chart-container">
+                        <h3>🏙️ Jobs by Location</h3>
+                        <canvas id="location-chart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Job Listings -->
+                <div class="jobs-section">
+                    <div class="section-header">
+                        <h3>💼 Recent Job Listings</h3>
+                        <div class="sort-controls">
+                            <label for="sort-by">Sort by:</label>
+                            <select id="sort-by">
+                                <option value="date">Date Posted</option>
+                                <option value="salary">Salary</option>
+                                <option value="company">Company</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div id="jobs-list" class="jobs-list">
+                        <!-- Job cards will be populated here -->
+                    </div>
+                    <div class="pagination">
+                        <button id="prev-page" class="page-btn" disabled>← Previous</button>
+                        <span id="page-info">Page 1 of 1</span>
+                        <button id="next-page" class="page-btn" disabled>Next →</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Error Message -->
+            <div id="error-message" class="error-message hidden">
+                <h3>⚠️ Something went wrong</h3>
+                <p id="error-text">Please try again or check your search parameters.</p>
+                <button id="retry-btn" class="retry-button">Try Again</button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>Built with ❤️ using Adzuna API | <a href="https://developer.adzuna.com/" target="_blank">API
+                    Documentation</a></p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="config/config.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/charts.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
