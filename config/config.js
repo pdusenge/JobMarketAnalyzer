@@ -1,12 +1,12 @@
-// Configuration file for Job Market Analyzer
-// IMPORTANT: Add this file to .gitignore to keep API keys secure
+const { APP_ID, API_KEY } = require("../secretKeys");
 
+// Configuration file for Job Market Analyzer
 const CONFIG = {
     // Adzuna API Configuration
-    // Get your free API key from: https://developer.adzuna.com/
+    // Get your free API key from: https://developer.adzuna.com/  
     ADZUNA: {
-        APP_ID: 'demo_app_id', 
-        API_KEY: 'demo_api_key',
+        APP_ID: APP_ID, 
+        API_KEY: API_KEY,
         BASE_URL: 'https://api.adzuna.com/v1/api/jobs'
     },
 
@@ -56,7 +56,7 @@ const CONFIG = {
 
 // Validation function to check if API keys are configured
 function validateConfig() {
-
+    console.log(APP_ID , API_KEY)
     if (CONFIG.ADZUNA.APP_ID ||
         CONFIG.ADZUNA.API_KEY ) {
         return true;

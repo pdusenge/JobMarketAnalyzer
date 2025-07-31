@@ -38,7 +38,6 @@ This application serves job seekers, recruiters, and market researchers by provi
 - Responsive design for all devices
 - Modern, intuitive interface
 - Fast loading with intelligent caching
-- Export functionality (JSON/CSV)
 
 ## 🛠️ Technology Stack
 
