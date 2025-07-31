@@ -4,6 +4,9 @@ A comprehensive web application that analyzes job market trends, salary distribu
 
 ![Job Market Dashboard](https://img.shields.io/badge/Status-Active-brightgreen) ![API](https://img.shields.io/badge/API-Adzuna-blue) ![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-yellow) ![Docker](https://img.shields.io/badge/Docker-Enabled-blue)
 
+## 🎞 Demo video
+https://www.youtube.com/watch?v=-kJ8eeII8mA
+
 ## 🚀 Quick Start
 
 ### Prerequisites
