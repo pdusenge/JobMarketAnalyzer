@@ -7,6 +7,9 @@ A comprehensive web application that analyzes job market trends, salary distribu
 ## 🎞 Demo video
 https://www.youtube.com/watch?v=-kJ8eeII8mA
 
+## 🤞 Docker hub link
+https://hub.docker.com/r/peggy100/job-market-web
+
 ## 🚀 Quick Start
 
 ### Prerequisites
@@ -331,6 +334,9 @@ This project is created for educational purposes as part of a web development as
 ## ⚡ Quick Reference Commands
 
 ```bash
+# pulling the docker images
+docker pull peggy100/job-market-web:latest
+
 # 🚀 Start the application
 docker-compose up -d
 
